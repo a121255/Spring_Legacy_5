@@ -61,7 +61,11 @@ public class NoticeDAO implements BoardDAO{
 		return sqlSession.update(NAMESPACE+"boardUpdate", boardVO);
 	}
 
-
+	@Override
+	public int boardHit(long num) throws Exception{
+		
+		return sqlSession.update(NAMESPACE+"boardHit", num);
+	}
 	
 
 

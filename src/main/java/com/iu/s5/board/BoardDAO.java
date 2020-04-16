@@ -34,4 +34,7 @@ public interface BoardDAO {
 	//update
 	public int boardUpdate(BoardVO boardVO) throws Exception;
 	
+	//hit
+	public int boardHit(long num) throws Exception;
+	
 }

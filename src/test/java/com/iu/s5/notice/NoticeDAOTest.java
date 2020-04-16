@@ -33,14 +33,18 @@ public class NoticeDAOTest extends AbstractTestCase {
 	 * 
 	 */
 	
+	/*
+	 * @Test public void boardUpdateTest() throws Exception{ NoticeVO noticeVO = new
+	 * NoticeVO(); noticeVO.setTitle("totototo"); noticeVO.setContents("cocococo");
+	 * noticeVO.setNum(8); int result = noticeDAO.boardUpdate(noticeVO);
+	 * assertNotEquals(0, result); }
+	 */
+
 	@Test
-	public void boardUpdateTest() throws Exception{
-		NoticeVO noticeVO = new NoticeVO();
-		noticeVO.setTitle("dd");
-		noticeVO.setContents("cocococo");
-		noticeVO.setNum(2);
-		int result = noticeDAO.boardUpdate(noticeVO);
+	public void boardHit() throws Exception{
+		int result = noticeDAO.boardHit(6);
 		assertNotEquals(0, result);
 	}
-
+	
+	
 }
