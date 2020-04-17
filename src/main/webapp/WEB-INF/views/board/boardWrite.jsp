@@ -17,6 +17,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="a">
+		<h1>${board} Write</h1>
 		<form action="./${board}Write" method="POST" >
 			<p>title : <input type="text" name="title" value=""></p>
 			<p>title : <input type="text" name="writer" value=""></p>

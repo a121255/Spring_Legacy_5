@@ -1,6 +1,8 @@
 package com.iu.s5.qna;
 
-public class QnaVO {
+import com.iu.s5.board.BoardVO;
+
+public class QnaVO extends BoardVO{
 
 	
 	private long ref;

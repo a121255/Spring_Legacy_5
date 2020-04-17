@@ -11,7 +11,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="row">
-		
+		<h1>${board} Select</h1>
 		<h1>Title : ${vo.title}</h1>
 		<h1>Writer : ${vo.writer}</h1>
 		<h1>Contents : ${vo.contents}</h1>

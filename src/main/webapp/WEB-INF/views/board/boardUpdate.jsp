@@ -17,6 +17,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="a">
+		<h1>${board} Update</h1>
 		<form action="./${board}Update" method="POST" >
 			<input type="hidden" name="num" value="${vo.num}">
 			<p>Title : <input type="text" name="title" value="${vo.title}"></p>
