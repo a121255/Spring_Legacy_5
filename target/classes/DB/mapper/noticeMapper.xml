@@ -21,8 +21,36 @@
 			update notice set title=#{title}, contents=#{contents} where num=#{num}
 		</update>
 		
-		<update id="boardHit" parameterType="java.lang.Long">
+		<update id="hitUpdate" parameterType="java.lang.Long">
 			update notice set hit = hit+1 where num = #{num}
 		</update>
+		
+		
+		<select id="boardSelect" parameterType="java.lang.Long" resultType="com.iu.s5.notice.NoticeVO">
+			select * from notice where num = #{num}
+		</select>
+		
+		
+		
+		<select id="boardList"  parameterType="java.util.Map" resultType="com.iu.s5.notice.NoticeVO">
+			select * from 
+			(select N.*, rownum R from 
+			(select * from notice order by num desc) N)
+			where R between #{startRow} and #{lastRow}
+		</select>
+		
+		
+		
+		<!-- 전체 글의 갯수 -->
+		<select id="boardCount" resultType="java.lang.Long">
+			select count(num) from notice
+			
+		</select>
+		
+		
+		
+		
+		
+		
   </mapper>
  

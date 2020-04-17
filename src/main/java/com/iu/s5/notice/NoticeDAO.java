@@ -3,6 +3,7 @@ package com.iu.s5.notice;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,31 @@ public class NoticeDAO implements BoardDAO{
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.iu.s5.notice.NoticeDAO.";
 
+	
+	
+	
+	@Override
+	public long boardCount() throws Exception {
+		
+		
+		return sqlSession.selectOne(NAMESPACE+"boardCount");
+	}
+	
+	
+	
+	
+	
 
 	@Override
-	public List<BoardVO> boardList() throws Exception {
+	public List<BoardVO> boardList(Map<String, Integer> map) throws Exception {  //array 박을지 linked 받을지 모르니 부모형인 List 선언
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE+"boardList", map); //알아서 묶어서 보내줌
 	}
 
 	@Override
-	public BoardVO boardSelect() throws Exception {
+	public BoardVO boardSelect(long num) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"boardSelect", num);
 	}
 
 
@@ -62,9 +77,9 @@ public class NoticeDAO implements BoardDAO{
 	}
 
 	@Override
-	public int boardHit(long num) throws Exception{
+	public int hitUpdate(long num) throws Exception{
 		
-		return sqlSession.update(NAMESPACE+"boardHit", num);
+		return sqlSession.update(NAMESPACE+"hitUpdate", num);
 	}
 	
 

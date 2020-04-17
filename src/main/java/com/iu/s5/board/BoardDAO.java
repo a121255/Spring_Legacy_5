@@ -1,6 +1,7 @@
 package com.iu.s5.board;
 
 import java.util.List;
+import java.util.Map;
 
 import com.iu.s5.notice.NoticeVO;
 
@@ -15,13 +16,17 @@ public interface BoardDAO {
 	//qna도 담을 수 있고 notice도 담을 수 있는 데이터타입 BoardVO
 	//public ArrayList<BoardVO>  부모형태   List<BoardVO>
 	
+	//count
+	public long boardCount() throws Exception;
+	
+	
 	
 	//List
-	public List<BoardVO> boardList() throws Exception; 
+	public List<BoardVO> boardList(Map<String, Integer> map) throws Exception; 
 	
 	
 	//select
-	public BoardVO boardSelect() throws Exception;
+	public BoardVO boardSelect(long num) throws Exception;
 	
 	
 	//insert
@@ -35,6 +40,6 @@ public interface BoardDAO {
 	public int boardUpdate(BoardVO boardVO) throws Exception;
 	
 	//hit
-	public int boardHit(long num) throws Exception;
+	public int hitUpdate(long num) throws Exception;
 	
 }
