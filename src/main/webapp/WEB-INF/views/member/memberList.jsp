@@ -41,19 +41,19 @@
 					<td>PHONE</td>
 					<td>EMAIL</td>
 				</tr>
-				<c:forEach items="${list}" var="vo">
+				<c:forEach items="${mlist}" var="mo">
 				<tr>
-					<td>${vo.id}</td>
-					<td><a href="./${board}Select?num=${vo.id}">${vo.name}</a></td>
-					<td>${vo.phone}</td>
-					<td>${vo.email}</td>
+					<td>${mo.id}</td>
+					<td><a href="">${mo.name}</a></td>
+					<td>${mo.phone}</td>
+					<td>${mo.email}</td>
 				</tr>
 				</c:forEach>
 				
 			
 			</table>
 			
-			<div>
+<%-- 			<div>
 				<ul class="pagination">
 					<c:if test="${pager.curBlock gt 1}">
 					<li><a href="./memberList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
@@ -67,10 +67,10 @@
 					</c:if>
 				</ul>
 				
-			</div>
+			</div> --%>
 			
 			<div>
-				<a href="./memberWrite" class="btn btn-danger">WRITE</a>
+				<a href="./memberList" class="btn btn-danger">WRITE</a>
 			</div>
 		</div>
 	</div>

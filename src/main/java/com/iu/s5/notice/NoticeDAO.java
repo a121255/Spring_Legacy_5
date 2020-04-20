@@ -35,6 +35,7 @@ public class NoticeDAO implements BoardDAO{
 	@Override
 	public List<BoardVO> boardList(Pager pager) throws Exception {  //array 박을지 linked 받을지 모르니 부모형인 List 선언
 		// TODO Auto-generated method stub
+		
 		return sqlSession.selectList(NAMESPACE+"boardList", pager); //알아서 묶어서 보내줌
 	}
 

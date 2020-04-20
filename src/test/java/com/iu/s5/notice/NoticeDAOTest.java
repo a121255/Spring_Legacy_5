@@ -1,6 +1,5 @@
 package com.iu.s5.notice;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -11,11 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s5.AbstractTestCase;
 import com.iu.s5.board.BoardVO;
+import com.iu.s5.member.MemberDAO;
+import com.iu.s5.member.MemberVO;
 
 public class NoticeDAOTest extends AbstractTestCase {
 	
+
+	
 	@Autowired
-	private NoticeDAO noticeDAO;
+	private MemberDAO memberDAO;
 	
 	
 	
@@ -30,49 +33,54 @@ public class NoticeDAOTest extends AbstractTestCase {
 
 	
 	//@Test
-	public void daoIsnull() {
-		assertNotNull(noticeDAO);
-		
-	}
-
+	/*
+	 * public void daoIsnull() { assertNotNull(noticeDAO);
+	 * 
+	 * }
+	 */
 	
 	
 	 @Test
 	 public void boardWriteTest() throws Exception {
-		 String writer="";
-		 String title="";
-		 String contents="";
-		 
+		 String id="";
+		 String name="";
+		 String phone="";
+		 String email="";
 		 
 		 for(int i=0; i<150; i++) {
-			 NoticeVO noticeVO = new NoticeVO();
+			 MemberVO memberVO = new MemberVO();
 			 
 			 if(i%3==0) {
-				 writer="iu";
-				 title="Alert";
-				 contents="Samsung";
+				 id="iuiiou";
+				 name="kkk";
+				 phone="0101121000";
+				 email= "ass@naver.com";
 			 }else if(i%3==1) {
-				 writer="coco";
-				 title="computer";
-				 contents ="apple";
+				 id="wasdss";
+				 name="mmm";
+				 phone="010112187";
+				 email= "buynn@naver.com";
 			 }else {
-				 writer="kh";
-				 title="os";
-				 contents="linux";
+				 id="apple";
+				 name="ooo";
+				 phone="0101125525";
+				 email= "qwr@naver.com";
 			 }
 			 
 			 
-			 
-			 noticeVO.setTitle(title+i);
-			 noticeVO.setWriter(writer);
-			 noticeVO.setContents(contents+i);
-			 noticeDAO.boradWrite(noticeVO);
-			 int result = noticeDAO.boradWrite(noticeVO);
+			 memberVO.setId(id+i);
+			 memberVO.setName(name+i);
+			 memberVO.setPhone(phone);
+			 memberVO.setEmail(email);
+			 System.out.println(memberVO.getId());
+	
+			 memberDAO.memberWrite(memberVO);
 			 
 			 if(i==50 || i==100) {
 				 Thread.sleep(1000);
 			 }
 			 
+			 assertNotNull(memberDAO);
 		 }
 	
 	  }
@@ -87,27 +95,26 @@ public class NoticeDAOTest extends AbstractTestCase {
 	 */
 
 	//@Test
-	public void boardHit() throws Exception{
-		int result = noticeDAO.hitUpdate(4);
-		assertNotEquals(0, result);
-	}
+		/*
+		 * public void boardHit() throws Exception{ int result = noticeDAO.hitUpdate(4);
+		 * assertNotEquals(0, result); }
+		 */
 	
 	
 	
 	//@Test
-	public BoardVO  boardSelectTest() throws Exception{
-		BoardVO boardVO = noticeDAO.boardSelect(2);
-		return boardVO;
-		//assertNotNull(boardVO);
-	}
+	/*
+	 * public BoardVO boardSelectTest() throws Exception{ BoardVO boardVO =
+	 * noticeDAO.boardSelect(2); return boardVO; //assertNotNull(boardVO); }
+	 */
 	
 	
 	//만들 때는 noticeVO였지만 담을 때는 boardVO로 해주었음. 나중에 차이점 알게됨
 	//@Test
-	public List<BoardVO> boardListTest()throws Exception{
-		return noticeDAO.boardList();
-	}
-	
+	/*
+	 * public List<BoardVO> boardListTest()throws Exception{ return
+	 * noticeDAO.boardList(); }
+	 */
 	
 	
 	
