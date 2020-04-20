@@ -2,14 +2,14 @@ package com.iu.s5.board;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import com.iu.s5.board.page.Pager;
 
 
 public interface BoardService {
 	
 	
 	//List
-	public List<BoardVO> boardList(int curPage) throws Exception;
+	public List<BoardVO> boardList(Pager pager) throws Exception;
 	
 	//Select
 	public BoardVO boardSelect(long num) throws Exception;

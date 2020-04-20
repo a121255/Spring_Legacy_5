@@ -14,14 +14,15 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<div class="row">
-			<h1>${board} List</h1>
-			<form class="col-xs-6" action="./${board}List">
+			<h1>Member List</h1>
+			<form class="col-xs-6" action="./memberList">
 			    <div class="input-group">
 			      <select value="key" class="form-control col-xs-2" id="sel1" name="kind">
 			        <option>Notice</option>
-				    <option value="bt">Title</option>
-				    <option value="bc">Contents</option>
-				    <option value="bw">Wtiter</option>
+				    <option value="mi">ID</option>
+				    <option value="mn">NAME</option>
+				    <option value="mp">PHONE</option>
+				    <option value="me">EMAIL</option>
 				  </select>
 			      <input type="text" class="form-control" placeholder="Search" name="search">
 			      <div class="input-group-btn">
@@ -35,19 +36,17 @@
 			
 			<table class="table table-hover">
 				<tr>
-					<td>NUM</td>
-					<td>TITLE</td>
-					<td>WRITER</td>
-					<td>DATE</td>
-					<td>HIT</td>
+					<td>ID</td>
+					<td>NAME</td>
+					<td>PHONE</td>
+					<td>EMAIL</td>
 				</tr>
 				<c:forEach items="${list}" var="vo">
 				<tr>
-					<td>${vo.num}</td>
-					<td><a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
-					<td>${vo.writer}</td>
-					<td>${vo.regdate}</td>
-					<td>${vo.hit}</td>
+					<td>${vo.id}</td>
+					<td><a href="./${board}Select?num=${vo.id}">${vo.name}</a></td>
+					<td>${vo.phone}</td>
+					<td>${vo.email}</td>
 				</tr>
 				</c:forEach>
 				
@@ -57,21 +56,21 @@
 			<div>
 				<ul class="pagination">
 					<c:if test="${pager.curBlock gt 1}">
-					<li><a href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
+					<li><a href="./memberList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
 					</c:if>
 					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 						
-						<li><a href="./${board}List?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+						<li><a href="./memberList?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 					</c:forEach>
 					<c:if test="${pager.curBlock lt pager.totalBlock}">
-					<li><a href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
+					<li><a href="./memberList?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
 					</c:if>
 				</ul>
 				
 			</div>
 			
 			<div>
-				<a href="./${board}Write" class="btn btn-danger">WRITE</a>
+				<a href="./memberWrite" class="btn btn-danger">WRITE</a>
 			</div>
 		</div>
 	</div>

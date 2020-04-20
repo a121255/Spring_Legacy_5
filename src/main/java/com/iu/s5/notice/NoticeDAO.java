@@ -1,9 +1,6 @@
 package com.iu.s5.notice;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s5.board.BoardDAO;
 import com.iu.s5.board.BoardVO;
+import com.iu.s5.board.page.Pager;
 
 @Repository
 public class NoticeDAO implements BoardDAO{
@@ -23,7 +21,7 @@ public class NoticeDAO implements BoardDAO{
 	
 	
 	@Override
-	public long boardCount() throws Exception {
+	public long boardCount(Pager pager) throws Exception {
 		
 		
 		return sqlSession.selectOne(NAMESPACE+"boardCount");
@@ -35,9 +33,9 @@ public class NoticeDAO implements BoardDAO{
 	
 
 	@Override
-	public List<BoardVO> boardList(Map<String, Integer> map) throws Exception {  //array 박을지 linked 받을지 모르니 부모형인 List 선언
+	public List<BoardVO> boardList(Pager pager) throws Exception {  //array 박을지 linked 받을지 모르니 부모형인 List 선언
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE+"boardList", map); //알아서 묶어서 보내줌
+		return sqlSession.selectList(NAMESPACE+"boardList", pager); //알아서 묶어서 보내줌
 	}
 
 	@Override

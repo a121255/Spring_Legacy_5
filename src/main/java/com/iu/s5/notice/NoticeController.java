@@ -10,10 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardVO;
+import com.iu.s5.board.page.Pager;
 
 @Controller
 @RequestMapping("/notice/**")
@@ -46,12 +46,30 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value="noticeList", method = RequestMethod.GET)
-	public ModelAndView boardList(@RequestParam(defaultValue = "1") int curPage, ModelAndView mv) throws Exception{
-		System.out.println(curPage);
+	public ModelAndView boardList(Pager pager, ModelAndView mv) throws Exception{ //Pager pager 같은 주소값
 
-		List<BoardVO> ar = noticeService.boardList(curPage);
+		System.out.println("kind : " + pager.getKind());
+		System.out.println("search : " + pager.getSearch());
+		
+		
+		
+		
+		
+		
+		//getCurPage 아무것도 안 넣으면 첫번째 페이지가 나오게끔
+		
+		
+		List<BoardVO> ar = noticeService.boardList(pager);
+		
+
+		System.out.println(pager.getTotalPage());
+		
+		
 		mv.addObject("list", ar);
 		//mv.addObject("board","notice"); 이 기능을 만들어준 게 있음! 위에 쓰겟다
+		mv.addObject("pager",pager);
+		
+		
 		
 		mv.setViewName("board/boardList");
 		return mv;

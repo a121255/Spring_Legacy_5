@@ -1,9 +1,8 @@
 package com.iu.s5.board;
 
 import java.util.List;
-import java.util.Map;
 
-import com.iu.s5.notice.NoticeVO;
+import com.iu.s5.board.page.Pager;
 
 public interface BoardDAO {
 	//멤버변수 상수
@@ -17,12 +16,12 @@ public interface BoardDAO {
 	//public ArrayList<BoardVO>  부모형태   List<BoardVO>
 	
 	//count
-	public long boardCount() throws Exception;
+	public long boardCount(Pager pager) throws Exception;
 	
 	
 	
 	//List
-	public List<BoardVO> boardList(Map<String, Integer> map) throws Exception; 
+	public List<BoardVO> boardList(Pager pager) throws Exception; 
 	
 	
 	//select

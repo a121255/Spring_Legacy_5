@@ -1,14 +1,13 @@
 package com.iu.s5.notice;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iu.s5.board.BoardService;
 import com.iu.s5.board.BoardVO;
+import com.iu.s5.board.page.Pager;
 
 
 @Service
@@ -20,27 +19,15 @@ public class NoticeService implements BoardService {
 	
 
 	@Override
-	public List<BoardVO> boardList(int curPage) throws Exception {
-		int startRow = (curPage-1)*10+1;
-		int lastRow = curPage*10;
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startRow", startRow);
-		map.put("lastRow", lastRow);
-		//-----------------------------------------------------------
-		//1. 총 글의 갯수 필요 
-		long totalCount = noticeDAO.boardCount();
-		System.out.println("totalCount"+ totalCount);
+	public List<BoardVO> boardList(Pager pager) throws Exception { //Pager pager >> 주소값을 받는것
 		
-		//2. 총 페이지의 갯수
-		long totalPage = totalCount/10;
+		pager.makeRow();
+		long totalCount = noticeDAO.boardCount(pager);
+		System.out.println("totalCount : "+totalCount);
+		pager.makePage(totalCount);  //리턴 안해줘도 가는 이유  >> 이미 static 영역에 올려져있음
 		
-		if(totalCount%10 != 0) {
-			totalPage++;
-		}
 		
-		System.out.println(totalPage);
-		
-		return noticeDAO.boardList(map);
+		return noticeDAO.boardList(pager);
 	}
 
 	@Override
