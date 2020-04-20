@@ -64,6 +64,31 @@
 		</select>
 		
 		
+		<select id="boardList"  parameterType="com.iu.s5.board.page.Pager" resultType="com.iu.s5.notice.NoticeVO">
+			select * from 
+			(select N.*, rownum R from 
+			(select * from notice where 
+			
+			<choose>
+				<when test="kind == 'bw'">
+					writer
+				</when>
+				<when test="kind == 'bt'">
+					title
+				</when>
+				<otherwise>
+					contents
+				</otherwise>
+			</choose>
+			
+			
+			
+			like '%'||#{search}||'%' and num>=1 order by num desc) N)
+			where R between #{startRow} and #{lastRow}
+		</select>
+		
+		
+		
 		
 		<!-- 전체 글의 갯수 -->
 		<select id="boardCount" parameterType="com.iu.s5.board.page.Pager" resultType="java.lang.Long">
