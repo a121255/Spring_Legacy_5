@@ -42,13 +42,22 @@
 					<td>HIT</td>
 				</tr>
 				<c:forEach items="${list}" var="vo">
-				<tr>
-					<td>${vo.num}</td>
-					<td><a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
-					<td>${vo.writer}</td>
-					<td>${vo.regdate}</td>
-					<td>${vo.hit}</td>
-				</tr>
+					<tr>
+						<td>${vo.num}</td>
+						<td>
+						
+						<c:catch>				
+						<!-- for(int i=0;i<=0;i++) -->
+						<c:forEach begin="1" end="${vo.depth}">
+							--
+							<!-- &nbsp;&nbsp; -->
+						</c:forEach>
+						</c:catch>
+						<a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
+						<td>${vo.writer}</td>
+						<td>${vo.regdate}</td>
+						<td>${vo.hit}</td>
+					</tr>
 				</c:forEach>
 				
 			
@@ -69,10 +78,29 @@
 				</ul>
 				
 			</div>
+			<!-- qna는 회원 전체, notice는 회원 중 admin만 -->
+	
+			<c:catch>
+			<c:choose>
+				<c:when test="${board eq 'notice' }">
+					<c:if test="${member.id eq 'admin'}">
+						<a href="./${board}Write" class="btn btn-danger">WRITE</a>
+					</c:if>
+				</c:when>
+				
+				<c:otherwise>
+					<c:if test="${not empty member}">
+						<a href="./${board}Write" class="btn btn-danger">WRITE</a>
+					</c:if>
+				</c:otherwise>
+			</c:choose>
+			</c:catch>
 			
+			<%-- <c:if test="${(board eq 'qna' and not empty member) or (board eq 'notice' and id eq admin)}">
 			<div>
 				<a href="./${board}Write" class="btn btn-danger">WRITE</a>
 			</div>
+			</c:if> --%>
 		</div>
 	</div>
 	

@@ -23,6 +23,10 @@
 	<div>
 		<a href="./${board}Update?num=${vo.num}" class="btn btn-danger">Update</a>
 		<a href="./${board}Delete?num=${vo.num}" class="btn btn-danger">Delete</a>
+		<c:if test="${board ne 'notice'}">
+			<a href="./${board}Reply?num=${vo.num}" class="btn btn-danger">Reply</a>
+		</c:if>
+	
 	</div>
 </body>
 </html>

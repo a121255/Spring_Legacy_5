@@ -42,7 +42,7 @@
 		
 		<div class="container">
 			<h1>Member Join Form</h1>
-		  <form class="form-horizontal" action="./memberJoin" method="post">
+		  <form class="form-horizontal" action="./memberJoin" method="post" enctype="multipart/form-data">
 		 	 <div class="form-group">
 		     	<label class="control-label col-sm-2" for="email">ID:</label>
 		     	<div class="col-sm-10">
@@ -95,6 +95,17 @@
 		        <input type="text" class="form-control" id="email" placeholder="Age" name="age">
 		      </div>
 		    </div>
+		    
+		    
+		    
+		    
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="pic">Avata:</label>
+		      <div class="col-sm-10">
+		        <input type="file" class="form-control" id="avata" placeholder="file" name="avata">
+		      </div>
+		    </div>
+		    
 		    
 		    
 		    

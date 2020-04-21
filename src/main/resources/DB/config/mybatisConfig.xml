@@ -8,6 +8,7 @@
  		<typeAlias type="java.lang.Long" alias="Long"/>
  		<typeAlias type="com.iu.s5.notice.NoticeVO" alias="NoticeVO"/>
  		<typeAlias type="com.iu.s5.member.MemberVO" alias="MemberVO"/>
- 		<typeAlias type="com.iu.s5.board.page.Pager" alias="Pager"/>
+ 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/>
+ 		<typeAlias type="com.iu.s5.qna.QnaVO" alias="QnaVO"/>
  	</typeAliases>
   </configuration>
