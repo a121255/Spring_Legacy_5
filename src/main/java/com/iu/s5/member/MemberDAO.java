@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s5.util.Pager;
 
@@ -27,7 +28,7 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"memberLogin", memberVO);
 	}
 	
-	public int memberJoin(MemberVO memberVO)throws Exception{
+	public int memberJoin(MemberVO memberVO, MultipartFile avata)throws Exception{
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);
 	}
 	

@@ -65,6 +65,17 @@
 		    
 		    
 		    
+		      <div class="form-group">
+		      <label class="control-label col-sm-2" for="email">Avata:</label>
+		      <div class="col-sm-10">
+		        <input type="text" class="form-control" id="avata" placeholder="math" name="avata" value="${member.age}">
+		      </div>
+		    </div>
+		    
+		    
+		    
+		    
+		    
 		    
 		    <div class="form-group">        
 		      <div class="col-sm-offset-2 col-sm-10">

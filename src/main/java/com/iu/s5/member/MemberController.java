@@ -12,8 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s5.member.memberFile.MemberFileVO;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -46,9 +48,17 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "memberJoin", method = RequestMethod.POST)
-	public ModelAndView memberJoin(MemberVO memberVO, String avata, ModelAndView mv) throws Exception {
+	public ModelAndView memberJoin(MemberVO memberVO, MultipartFile avata, ModelAndView mv, HttpSession session) throws Exception {
 		
-		int result = memberService.memberJoin(memberVO);
+		
+		System.out.println("파일업로드 시 실제 이름 : " + avata.getOriginalFilename());
+		System.out.println("파라미터 이름 : " + avata.getName() );
+		System.out.println("파일의 크기 : " + avata.getSize());
+		System.out.println("파일 형식 : " + avata.getContentType());
+		avata.getInputStream();
+		
+		
+		int result = memberService.memberJoin(memberVO, avata, session);
 		String msg ="Member Join Fail";
 		if(result>0) {
 			msg = "Member Join Success";
@@ -110,9 +120,28 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "memberPage")
-	public void memberPage() {
+	public void memberPage(HttpSession session, Model model) throws Exception {
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getId());
+		model.addAttribute("file",memberFileVO);
 		
 	}
+	
+	
+	
+	@RequestMapping(value ="fileDelete")
+	public String fileDelete(HttpSession session) throws Exception{
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
+		memberService.fileDelete(memberVO.getId(), session);
+		//DB에도 남고 서버에도 남으니 둘 다 지워줘야 한다
+		return "redirect:./memberPage";
+	}
+	
+	
+	
+	
+	
+	
 
 	
 	@RequestMapping(value= "memberUpdate")

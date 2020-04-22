@@ -12,7 +12,7 @@
 		<c:import url="../template/header.jsp"></c:import>  <!-- header.jsp -->
 		
 		<div class="container">
-			<h1>Member Login</h1>
+			<h1>Member Page</h1>
 			
 			
 			<table class="table">
@@ -23,6 +23,7 @@
 			        <th>Email</th>
 			        <th>Phone</th>
 			        <th>Age</th>
+			        <th>Image</th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -32,6 +33,8 @@
 			        <td>${member.email}</td>
 			        <td>${member.phone}</td>
 			        <td>${member.age}</td>
+			        <td><a href="./fileDelete">FileDelete</a><img alt="" src="../resources/memberUpload/${file.fileName}"></td>
+			   
 			      </tr>
 	
 			    </tbody>

@@ -41,7 +41,7 @@
 					<td>PHONE</td>
 					<td>EMAIL</td>
 				</tr>
-				<c:forEach items="${mlist}" var="mo">
+				<c:forEach items="${list}" var="mo">
 				<tr>
 					<td>${mo.id}</td>
 					<td><a href="">${mo.name}</a></td>
@@ -53,7 +53,7 @@
 			
 			</table>
 			
-<%-- 			<div>
+ 			<div>
 				<ul class="pagination">
 					<c:if test="${pager.curBlock gt 1}">
 					<li><a href="./memberList?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
@@ -67,7 +67,7 @@
 					</c:if>
 				</ul>
 				
-			</div> --%>
+			</div> 
 			
 			<div>
 				<a href="./memberList" class="btn btn-danger">WRITE</a>

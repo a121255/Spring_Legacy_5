@@ -136,11 +136,13 @@ public class Pager {
 		
 		//2. totalCount로 totalPage 계산
 		this.totalPage = totalCount/this.getPerPage();  //87  / 10
+		System.out.println("totalCount : "+totalCount);
 		System.out.println("perPage : " + this.getPerPage());
-		System.out.println("totalPage : " +totalPage);
+		
 		if(totalCount % this.getPerPage() != 0) {
 			this.totalPage++;
 		}
+		System.out.println("totalPage : " +totalPage);
 		
 		//--------------------------------
 		
