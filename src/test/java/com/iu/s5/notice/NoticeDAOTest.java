@@ -74,7 +74,7 @@ public class NoticeDAOTest extends AbstractTestCase {
 			 memberVO.setEmail(email);
 			 System.out.println(memberVO.getId());
 	
-			 memberDAO.memberWrite(memberVO);
+//			 memberDAO.memberWrite(memberVO);
 			 
 			 if(i==50 || i==100) {
 				 Thread.sleep(1000);

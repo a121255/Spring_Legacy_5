@@ -5,6 +5,32 @@
   
 <mapper namespace="com.iu.s5.member.MemberDAO">
 	
+	<resultMap type="MemberVO" id="loginResult">
+		 <!-- primary key로 꺼내오는 건 id로 -->
+		<!-- 만약에  mId가 나오면 id를 대입해주세여 -->
+		<id column="id" property="id"/>
+		<!-- 나머지는 result^ㅇ^ -->
+		<result column="pw" property="pw"/>
+		<result column="name" property="name"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<result column="age" property="age"/>
+		<!-- 1개인 경우 //1:1 관계 -->
+		<association property="memberFileVO" javaType="MemberFileVO">
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</association> <!-- 내부에 들어가는 객체..MemberFileVO -->
+		
+		
+	</resultMap>
+	
+	
+	
+	
+	
+	
+	
+	
 	<sql id="search">
 		like '%'||#{search}||'%'
 	</sql>
@@ -41,8 +67,11 @@
 		where R between #{startRow} and #{lastRow}
 	</select>
 	
-	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
-		select * from member where id=#{id} and pw=#{pw}
+	<select id="memberLogin" parameterType="MemberVO" resultMap="loginResult">
+		Select M.*, F.fileName, F.oriName    
+		from member M left join memberFile F
+		on (M.id = F.id)
+		where M.id = #{id} and M.pw=#{pw}
 	</select>
 	
 	<insert id="memberJoin" parameterType="MemberVO">
