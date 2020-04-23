@@ -66,10 +66,11 @@ public class MemberService {
 	
 	
 	
-	
-	public MemberFileVO fileSelect(String id) throws Exception{
-		return memberFileDAO.fileSelect(id);
-	}
+	//왜..지운거지?
+	/*
+	 * public MemberFileVO fileSelect(String id) throws Exception{ return
+	 * memberFileDAO.fileSelect(id); }
+	 */
 	
 	
 	public int fileDelete(String id, HttpSession session) throws Exception{

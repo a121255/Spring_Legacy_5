@@ -120,11 +120,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "memberPage")
-	public void memberPage(HttpSession session, Model model) throws Exception {
-		MemberVO memberVO = (MemberVO) session.getAttribute("member");
-		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getId());
-		model.addAttribute("file",memberFileVO);
-		
+	public void memberPage(/*HttpSession session, Model model*/) throws Exception {
+		/*
+		 * MemberVO memberVO = (MemberVO) session.getAttribute("member"); MemberFileVO
+		 * memberFileVO = memberService.fileSelect(memberVO.getId());
+		 * model.addAttribute("file",memberFileVO);
+		 */
+		//이미 session으로 보냈기 때문에 지워주어도 된다...왜지운거지?
 	}
 	
 	
