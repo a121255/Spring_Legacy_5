@@ -7,7 +7,7 @@ public class BoardVO {
 	private String title;
 	private String writer;
 	private String contents;
-	private Date regdate;
+	private Date regDate;
 	private long hit;
 	
 	
@@ -43,11 +43,11 @@ public class BoardVO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setRegdate(Date regDate) {
+		this.regDate = regDate;
 	}
 	public long getHit() {
 		return hit;

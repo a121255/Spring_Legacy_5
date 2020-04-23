@@ -55,7 +55,7 @@
 						</c:catch>
 						<a href="./${board}Select?num=${vo.num}">${vo.title}</a></td>
 						<td>${vo.writer}</td>
-						<td>${vo.regdate}</td>
+						<td>${vo.regDate}</td>
 						<td>${vo.hit}</td>
 					</tr>
 				</c:forEach>

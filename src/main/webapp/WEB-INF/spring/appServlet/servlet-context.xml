@@ -16,10 +16,27 @@
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- 어떤 종류의 화면으로 볼 거냐고 알려주는... view -->
+	<!-- view라는 형태를 다르게 만들어서 쓸 수 있는 인터페이스 제공 -->
+	<!-- viewResolver를 만들 수 있음 >>> costomView-->
+
+	
+	
+	
+	
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"></beans:property>
 	</beans:bean>
+	
+
+	<!-- 이름 찾아서 있으면 실행, 이름 있더라도 AbstractView 해주어야만 가능 -->
+	<!-- 숫자 작을수록 우선순위 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"></beans:property>
+	</beans:bean>
+	
 	
 	<context:component-scan base-package="com.iu.s5" />
 	

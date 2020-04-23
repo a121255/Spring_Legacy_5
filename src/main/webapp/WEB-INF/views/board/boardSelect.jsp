@@ -15,8 +15,16 @@
 		<h1>Title : ${vo.title}</h1>
 		<h1>Writer : ${vo.writer}</h1>
 		<h1>Contents : ${vo.contents}</h1>
-		<h1>Date : ${vo.regdate}</h1>
+		<h1>Date : ${vo.regDate}</h1>
 		<h1>hit : ${vo.hit}</h1>
+	</div>
+	<div>
+	
+		<c:forEach items="${vo.boardFileVOs}" var="file">
+		<div>
+			<a href="../boardFile/fileDown?fileNum=${file.fileNum}&board=${file.board}">${file.oriName}</a>
+		</div>
+		</c:forEach>
 	</div>
 	
 	

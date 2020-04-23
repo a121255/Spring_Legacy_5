@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/summer.jsp"></c:import>
 <style type="text/css">
 	.a {
 		width:500px;
@@ -23,12 +24,20 @@
 			<p>Title : <input type="text" name="title" value="${vo.title}"></p>
 			<p>Writer : <input type="text" name="writer" value="${vo.writer}" disabled="disabled"></p> <!-- read only와 구분해서 사용 -->
 			<p>Num : ${vo.num}</p>
-			<textarea rows="10" cols="70" name="contents">${vo.contents}</textarea>
+			<textarea rows="10" cols="70" name="contents" id="contents">${vo.contents}</textarea>
 			<input type="submit" value="WRITE" class="btn btn-danger">
 		</form>
-	<!-- 왜 업데이트 햇는데 인서트가 될까?? -->
+
 	
 	
 	</div>
+		<script type="text/javascript">
+		//${"선택자"}.action{};
+		$("#contents").summernote({
+			height:400
+			
+		});
+	
+	</script>
 </body>
 </html>

@@ -6,7 +6,9 @@
   <configuration>
  	<typeAliases>
  		<typeAlias type="java.lang.Long" alias="Long"/>
- 			<typeAlias type="java.lang.String" alias="String"/>
+ 		<typeAlias type="java.lang.String" alias="String"/>
+ 		<typeAlias type="java.util.List" alias="List"/>
+ 		
  		
  		<typeAlias type="com.iu.s5.notice.NoticeVO" alias="NoticeVO"/>
  		<typeAlias type="com.iu.s5.member.MemberVO" alias="MemberVO"/>
@@ -14,5 +16,6 @@
  		<typeAlias type="com.iu.s5.qna.QnaVO" alias="QnaVO"/>
  		<typeAlias type="com.iu.s5.member.memberFile.MemberFileVO" alias="MemberFileVO"/>
  		<typeAlias type="com.iu.s5.board.file.BoardFileVO" alias="BoardFileVO"/>
+ 	
  	</typeAliases>
   </configuration>

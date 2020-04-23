@@ -7,4 +7,10 @@
  	<insert id="fileInsert" parameterType="BoardFileVO">
  		INSERT INTO boardFile VALUES (file_seq.nextval, #{num}, #{fileName}, #{oriName}, #{board})
  	</insert>
+ 	
+ 	<select id="fileSelect" parameterType="BoardFileVO" resultType="BoardFileVO">
+ 		select * from boardFile where fileNum=#{fileNum} and board=#{board}
+ 	
+ 	</select>
+ 	
  </mapper>
