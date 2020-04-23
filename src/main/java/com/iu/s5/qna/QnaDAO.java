@@ -46,6 +46,7 @@ public class QnaDAO implements BoardDAO {
 		return sqlSession.selectOne(NAMESPACE+"boardSelect", num);
 	}
 
+
 	@Override
 	public int boradWrite(BoardVO boardVO) throws Exception {
 		

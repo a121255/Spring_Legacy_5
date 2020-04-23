@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.board.BoardVO;
@@ -91,10 +92,12 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value="noticeWrite", method = RequestMethod.POST)
-	public ModelAndView boardWrite(NoticeVO noticeVO, ModelAndView mv) throws Exception{
+	public ModelAndView boardWrite(NoticeVO noticeVO, MultipartFile [] files, ModelAndView mv) throws Exception{
 
-	
-		int result = noticeService.boardWrite(noticeVO);
+		for(MultipartFile file:files) {
+			System.out.println(file.getOriginalFilename());
+		}
+		int result = noticeService.boardWrite(noticeVO, files);
 		
 		//글쓰기 성공 그냥 go, 실패 했을 땐 실패했단 messege 띄우고 List로 돌아감
 

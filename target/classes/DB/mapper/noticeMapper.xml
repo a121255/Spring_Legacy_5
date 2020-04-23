@@ -17,7 +17,7 @@
   	<!-- 쿼리문 연결하고 끊을 때마다 자원 소모하는 것을 줄여줌  -->
 
 	  <insert id="boardWrite" parameterType="NoticeVO">
-	  	insert into notice values(board_seq.nextval, #{title}, #{writer}, #{contents}, sysdate, 0)
+	  	insert into notice values(#{num}, #{title}, #{writer}, #{contents}, sysdate, 0)
 	  </insert>
 	
 	
@@ -63,6 +63,10 @@
 			where R between #{startRow} and #{lastRow}
 		</select>
 		
+		
+		<select id="boardNum" resultType="Long">
+			select board_seq.nextval from dual 
+		</select>
 
 		
 		

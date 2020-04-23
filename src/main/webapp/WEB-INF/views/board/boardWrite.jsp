@@ -18,10 +18,18 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="a">
 		<h1>${board} Write</h1>
-		<form action="./${board}Write" method="POST" >
+		<form action="./${board}Write" method="POST" enctype="multipart/form-data" >
 			<p>title : <input type="text" name="title" value=""></p>
-			<p>title : <input type="text" name="writer" value=""></p>
+			<p>writer : <input type="text" name="writer" value=""></p>
 			<textarea rows="10" cols="70" name="contents" value=""></textarea>
+			<input type="submit" value="WRITE" class="btn btn-danger">
+			
+			  <div class="form-group" >
+			    <label for="files">File:</label>
+			    <input type="file" class="form-control" name="files">
+			    <input type="file" class="form-control" name="files">
+			  </div> 
+			
 			<input type="submit" value="WRITE" class="btn btn-danger">
 		</form>
 	

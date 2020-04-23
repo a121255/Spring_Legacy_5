@@ -36,14 +36,18 @@
 	</select>
 	
 	<insert id="boardWrite" parameterType="QnaVO">
+		<selectKey keyProperty="num" order="BEFORE" resultType="Long">   <!-- qnaVo.setNum 해줘 -->
+			select board_seq.nextval from dual
+		</selectKey>
+	
 		insert into qna values (
-		board_seq.nextval, 
+		#{num}, 
 		#{title},
 		#{writer},
 		#{contents},
 		sysdate,
 		0,
-		board_seq.currval,
+		#{num},
 		0,
 		0
 		)
@@ -53,6 +57,7 @@
 		select * from qna where num=#{num}
 	</select>
 	
+
 	
 	<update id="boardReplyUpdate" parameterType="QnaVO">
 		update qna set step=step+1 where
