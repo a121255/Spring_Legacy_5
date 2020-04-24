@@ -10,8 +10,21 @@
 	</head>
 	<body>
 		<c:import url="./template/header.jsp"></c:import>
-		<h1>Add Contents</h1>
-		<h1>Add Contents2</h1>
+		<button id="btn">BUTTON</button>
 		
+		
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				//jquery ajax
+				//GET
+				alert("start");
+				$.get("./notice/noticeSelect?num=125", function(result){ //보냈음. 응답은 어케 받을까?
+					console.log(result);
+				}); 
+				alert("finish");
+				
+			});
+		
+		</script>
 	</body>
 </html>

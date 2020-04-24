@@ -26,32 +26,35 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="writer">Writer:</label>
-		    <input type="text" class="form-control" id="writer" name="writer">
+		    <input type="text" class="form-control" id="writer" value="${member.id}" readonly="readonly" name="writer">
 		  </div>
 		 <div class="form-group" >
 		    <label for="contents">Contents:</label>
 		    <textarea rows="20" cols="" class="form-control" id="contents" name="contents"></textarea>
 		  </div> 
 		  
-		  <div class="form-group" >
-		    <label for="files">File:</label>
-		    <input type="file" class="form-control" name="files">
-		    <input type="file" class="form-control" name="files">
-		  </div> 
+		  <input type="button" id="add" class="btn btn-info" value="AddFile">
 		  
 		  
-		  <input type="submit" id="btn" class="btn btn-default" value="Write">
+		  
+		  <div id="file">
+			  <div class="form-group fileg" >
+			  	<label for="file">File:</label>
+			    <input type="file" class="form-control files" name="files">
+			    
+			  </div> 
+		  </div>
+		  
+		  
+		  <input type="button" id="btn" class="btn btn-default" value="Write">
 		</form>
 	
 	
 	
 	</div>
-	<script type="text/javascript">
-		//${"선택자"}.action{};
-		$("#contents").summernote({
-			height:400
-			
-		});
+	<script type="text/javascript" src="../resources/js/boardForm.js">
+	
+
 	
 	</script>
 </body>

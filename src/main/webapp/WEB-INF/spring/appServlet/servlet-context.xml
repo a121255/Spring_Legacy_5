@@ -33,6 +33,7 @@
 
 	<!-- 이름 찾아서 있으면 실행, 이름 있더라도 AbstractView 해주어야만 가능 -->
 	<!-- 숫자 작을수록 우선순위 -->
+	<!-- 파일 다운로드 -->
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>

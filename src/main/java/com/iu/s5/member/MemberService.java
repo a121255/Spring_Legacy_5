@@ -64,7 +64,9 @@ public class MemberService {
 		return result;
 	}
 	
-	
+	public MemberVO memberIdCheck(MemberVO memberVO) {
+		return memberDAO.memberIdCheck(memberVO);
+	}
 	
 	//왜..지운거지?
 	/*

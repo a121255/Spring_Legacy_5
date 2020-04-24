@@ -1,7 +1,9 @@
 package com.iu.s5.notice;
 
+import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,8 +94,14 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value="noticeWrite", method = RequestMethod.POST)
-	public ModelAndView boardWrite(NoticeVO noticeVO, MultipartFile [] files, ModelAndView mv) throws Exception{
-
+	public ModelAndView boardWrite(HttpServletRequest request, NoticeVO noticeVO, MultipartFile [] files, ModelAndView mv) throws Exception{
+		Enumeration<String> er = request.getParameterNames();
+		
+		while(er.hasMoreElements()) {
+			System.out.println(er.nextElement());
+		}
+		
+		
 		for(MultipartFile file:files) {
 			System.out.println(file.getOriginalFilename());
 		}

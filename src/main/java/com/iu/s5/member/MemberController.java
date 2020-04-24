@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +25,30 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@PostMapping("memberIdCheck")
+	public ModelAndView memberIdCheck(MemberVO memberVO, ModelAndView mv) {
+	
+		memberVO = memberService.memberIdCheck(memberVO);
+		//null --> 가입가능
+		//null 아니면 중복
+		
+		int result=0;
+		if(memberVO==null) {
+			result=1;
+		}
+		
+		
+		mv.addObject("result",result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value="memberList", method = RequestMethod.GET)
 	public ModelAndView memberList(Pager memberPager, ModelAndView mv)throws Exception{
