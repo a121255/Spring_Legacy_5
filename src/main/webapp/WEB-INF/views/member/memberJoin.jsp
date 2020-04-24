@@ -101,7 +101,7 @@
 			
 		 	var id = $("#id").val();
 			
-			 $.post("./memberIdCheck",{id:id},function(data){
+			 $.post("./memberIdCheck",{id:id},function(data){//data값은 html
 				 
 				 alert(data);
 			
