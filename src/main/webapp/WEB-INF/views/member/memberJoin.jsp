@@ -15,7 +15,7 @@
 			<h1>Member Join Form</h1>
 		  <form class="form-horizontal" action="./memberJoin" method="post" enctype="multipart/form-data">
 		 	 <div class="form-group">
-		     	<label class="control-label col-sm-2" for="email">ID:</label>
+		     	<label class="control-label col-sm-2" for="id">ID:</label>
 		     	<div class="col-sm-10">
 		     	  <input type="text" class="form-control" placeholder="ID" name="id" id="id">
 		     	  <button id="cbtn">Check</button>
@@ -28,11 +28,16 @@
 			<div class="form-group">
 		      <label class="control-label col-sm-2" for="email">Name:</label>
 		      <div class="col-sm-10">
-		        <input type="text" class="form-control" id="email" placeholder="Name" name="name">
+		        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
 		      </div>
 		    </div>
 		    
-		    
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="email">PW:</label>
+		      <div class="col-sm-10">
+		        <input type="text" class="form-control" id="pw" placeholder="PW" name="pw">
+		      </div>
+		    </div>
 		    
 		    <div class="form-group">
 		      <label class="control-label col-sm-2" for="email">Email:</label>
@@ -46,7 +51,7 @@
 		    <div class="form-group">
 		      <label class="control-label col-sm-2" for="email">Phone:</label>
 		      <div class="col-sm-10">
-		        <input type="text" class="form-control" id="email" placeholder="Phone" name="phone">
+		        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
 		      </div>
 		    </div>
 		    
@@ -56,7 +61,7 @@
 		    <div class="form-group">
 		      <label class="control-label col-sm-2" for="email">Age:</label>
 		      <div class="col-sm-10">
-		        <input type="text" class="form-control" id="email" placeholder="Age" name="age">
+		        <input type="text" class="form-control" id="age" placeholder="Age" name="age">
 		      </div>
 		    </div>
 		    
@@ -66,7 +71,7 @@
 		    <div class="form-group">
 		      <label class="control-label col-sm-2" for="pic">Avata:</label>
 		      <div class="col-sm-10">
-		        <input type="file" class="form-control" id="avata" placeholder="file" name="avata">
+		        <input type="file" class="form-control" id="avata" placeholder="avata" name="avata">
 		      </div>
 		    </div>
 		    

@@ -33,7 +33,7 @@
 			        <td>${member.email}</td>
 			        <td>${member.phone}</td>
 			        <td>${member.age}</td>
-			        <td><a href="./fileDelete">FileDelete</a><img alt="" src="../resources/memberUpload/${file.fileName}"></td>
+			        <td><a href="./fileDelete">FileDelete</a><img alt="" src="../resources/memberUpload/${member.memberFileVO.fileName}"></td>
 			   
 			      </tr>
 	

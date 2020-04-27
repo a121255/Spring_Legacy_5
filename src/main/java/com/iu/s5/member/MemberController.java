@@ -110,7 +110,11 @@ public class MemberController {
 		
 		
 		int result = memberService.memberJoin(memberVO, avata, session);
+		
+		
 		String msg ="Member Join Fail";
+		
+		
 		if(result>0) {
 			msg = "Member Join Success";
 		}
