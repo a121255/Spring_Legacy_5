@@ -76,6 +76,9 @@ public class QnaService implements BoardService {
 		
 		
 		for(MultipartFile file:files) {
+			
+			
+			if(file.getSize()>0) {
 			BoardFileVO boardFileVO = new BoardFileVO();
 			
 			String fileName = fileSaver.saveByTransfer(file, path);
@@ -87,6 +90,7 @@ public class QnaService implements BoardService {
 			
 			
 			boardFileDAO.fileInsert(boardFileVO);
+			}
 		}
 		
 		

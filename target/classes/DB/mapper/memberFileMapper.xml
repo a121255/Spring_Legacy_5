@@ -12,8 +12,8 @@
 		select * from memberFile where id=#{id}
 	</select>
   
-  	<delete id="fileDelete" parameterType="MemberFileVO">
-  		delete memberFile where id=#{id}
+  	<delete id="fileDelete" parameterType="String">
+  		DELETE MEMBERFILE WHERE ID=#{id} 
   	</delete>
   </mapper>
  

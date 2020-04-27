@@ -67,6 +67,7 @@ public class NoticeService implements BoardService {
 		
 		for(MultipartFile file:files) {
 			
+			if(file.getSize()>0) {
 			BoardFileVO boardFileVO = new BoardFileVO();
 			String fileName = fileSaver.saveByTransfer(file, path);
 			
@@ -75,11 +76,8 @@ public class NoticeService implements BoardService {
 			boardFileVO.setOriName(file.getOriginalFilename());
 			boardFileVO.setBoard(1);
 			
-			
-			
-			
 			boardFileDAO.fileInsert(boardFileVO);
-			
+			}
 			
 		}
 

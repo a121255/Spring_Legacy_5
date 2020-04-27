@@ -40,6 +40,13 @@ public class MemberService {
 		return memberDAO.memberDelete(memberVO);
 	}
 	
+	
+	public int memberDeletes(List<String> list) throws Exception{
+		return memberDAO.memberDeletes(list);
+	} 
+	
+	
+	
 	public MemberVO memberLogin(MemberVO memberDTO)throws Exception{
 		return memberDAO.memberLogin(memberDTO);
 	}

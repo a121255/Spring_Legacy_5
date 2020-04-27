@@ -21,4 +21,8 @@ public class BoardFileDAO {
 		return sqlSession.selectOne(NAMESPACE+"fileSelect", boardFileVO);
 	}
 	
+	public int fileDelete(Long fileNum) throws Exception{
+		System.out.println("dao: "+fileNum);
+		return sqlSession.delete(NAMESPACE+"fileDelete",fileNum);
+	}
 }

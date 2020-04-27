@@ -97,11 +97,11 @@
 		<script type="text/javascript">
  		$("#id").blur(function(){
 			
-			alert("dd");
+		//	alert("dd");
 			
 		 	var id = $("#id").val();
 			
-			 $.post("./memberIdCheck",{id:id},function(data){//data값은 html
+/* 			 $.post("./memberIdCheck",{id:id},function(data){//data값은 html
 				 
 				 alert(data);
 			
@@ -113,7 +113,26 @@
 				}
 				
 				
-			});  
+			});   */
+			
+			
+			$.ajax({
+				type: "post",	//method 형식
+				url : "./memberIdCheck", //URL 주소
+				data : {
+					id: id
+				},	//parameter
+				success: function(data){
+					alert(data);
+				},
+				error : function() {
+					alert("error 발생");
+				}
+				
+				
+				
+			});
+			
 		});
  
  

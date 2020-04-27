@@ -13,4 +13,7 @@
  	
  	</select>
  	
+ 	<delete id="fileDelete" parameterType="Long">
+ 		delete boardFile where fileNum=#{fileNum}
+ 	</delete>
  </mapper>

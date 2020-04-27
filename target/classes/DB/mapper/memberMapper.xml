@@ -91,4 +91,12 @@
 	</delete>
 
 
+	<delete id="memberDeletes" parameterType="List">
+		delete member where id in 
+		<!-- list에서 꺼낸 걸 id에 넣자  -->
+		<foreach collection="list" item="id" open="(" close=")" separator=",">
+			#{id}
+		</foreach> 
+	</delete>
+
 </mapper>  

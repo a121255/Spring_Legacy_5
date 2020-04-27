@@ -1,5 +1,6 @@
 package com.iu.s5.member;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -10,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.s5.member.memberFile.MemberFileVO;
 import com.iu.s5.util.Pager;
 
 @Controller
@@ -60,6 +61,31 @@ public class MemberController {
 		
 		return mv;
 	}
+	
+	
+	
+	@GetMapping("memberLists")
+	public ModelAndView memberLists(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<MemberVO> ar = memberService.memberList(pager);
+		
+		mv.addObject("list",ar);
+		mv.addObject("pager",pager);
+		mv.setViewName("member/memberLists");
+		
+		return mv;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "memberLogout")
 	public String memberLogout(HttpSession session)throws Exception{
@@ -212,5 +238,36 @@ public class MemberController {
 		
 		return mv;
 	}
+	
+	
+	
+	@RequestMapping(value="memberDeletes")
+	public ModelAndView memberDeletes(String[] ids) throws Exception{
+	
+		/*
+		 * for(String id : ids) { System.out.println(id); MemberVO memberVO = new
+		 * MemberVO(); memberVO.setId(id); memberService.memberDelete(memberVO); }
+		 */
+		
+		ModelAndView mv = new ModelAndView();
+		
+		List<String> list = Arrays.asList(ids);
+		int result = memberService.memberDeletes(list);
+		
+		mv.addObject("result",result);
+		mv.setViewName("/common/ajaxResult");
+		System.out.println(result);
+		
+		return mv;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

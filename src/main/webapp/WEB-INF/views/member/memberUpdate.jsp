@@ -64,11 +64,11 @@
 		    </div>
 		    
 		    
-		    
+		    <h1>${member.memberFileVO.oriName}</h1>
 		      <div class="form-group">
 		      <label class="control-label col-sm-2" for="email">Avata:</label>
 		      <div class="col-sm-10">
-		        <input type="text" class="form-control" id="avata" placeholder="math" name="avata" value="${member.age}">
+		        <input type="text" class="form-control" id="avata" placeholder="math" name="avata" value="${member.memberFileVO.oriName}">
 		      </div>
 		    </div>
 		    

@@ -25,6 +25,16 @@
 			<p>Writer : <input type="text" name="writer" value="${vo.writer}" disabled="disabled"></p> <!-- read only와 구분해서 사용 -->
 			<p>Num : ${vo.num}</p>
 			<textarea rows="10" cols="70" name="contents" id="contents">${vo.contents}</textarea>
+			
+			
+			<div>
+				<label for="files">Files:</label>
+				<c:forEach items="${vo.boardFileVOs}" var="fileVO">
+					<p>${fileVO.oriName}<i id="${fileVO.fileNum}" class="glyphicon glyphicon-remove remove fileDelete"></i></p>
+				</c:forEach>			
+				
+			</div>
+			
 			<input type="submit" value="WRITE" class="btn btn-danger">
 		</form>
 
@@ -39,6 +49,29 @@
 			height:400
 			
 		});
+		
+		$(".fileDelete").click(function(){
+			
+			var s = $(this);
+			
+			
+			$.post("../boardFile/fileDelete",{fileNum:$(this).attr("id")},function(data){
+				alert(data);
+				
+				if(data.trim()>0){
+					alert("성공");
+					alert(data);
+					s.parent().remove();
+				}else{
+					alert(data);
+					alert("파일 삭제 실패ㅠㅠ");
+				}
+			});
+			
+		}); 
+		
+		
+		
 	
 	</script>
 </body>
