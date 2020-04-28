@@ -12,6 +12,11 @@
 		var count = 1;
 		
 		
+		function setCount(c){
+			count = count + c;
+		}
+		
+		
 		$("#add").click(function() {
 			if(count<6){
 				$("#file").append('<div class="form-group fileg" > <label for="file"> File :</label> <input type="file" class="form-control files" name="files"> <i class="glyphicon glyphicon-remove remove"></i></div> ');
@@ -85,7 +90,12 @@
 	
 		//${"선택자"}.action{};
 		$("#contents").summernote({
-			height:400
+			height:400,
+			callbacks: {
+				onImageUpload: function(file) {
+				      console.log("upload");
+				}
+			}
 			
 		});
 		

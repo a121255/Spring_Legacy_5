@@ -130,16 +130,20 @@ public class NoticeController {
 		model.addAttribute("vo", boardVO);
 		
 		
+		 NoticeVO noticeVO = (NoticeVO)boardVO;
+		 model.addAttribute("size", noticeVO.getBoardFileVOs().size());
+
+
 		return "board/boardUpdate";
 	}
 	
 	
 	
 	@RequestMapping(value="noticeUpdate", method = RequestMethod.POST)
-	public String boardUpdate(NoticeVO noticeVO, HttpSession session) throws Exception{
+	public String boardUpdate(HttpServletRequest request, NoticeVO noticeVO, MultipartFile [] files) throws Exception{
 
 
-		int result = noticeService.boardUpdate(noticeVO);
+		int result = noticeService.boardUpdate(noticeVO, files);
 		String path ="";
 
 		if(result>0) {
@@ -147,6 +151,17 @@ public class NoticeController {
 		}else {
 			path = "redirect:./noticeSelect?num="+noticeVO.getNum();  //파라미터로 num을 줘야 함. 안 주면 exception.
 		}
+	
+		
+		for(MultipartFile file:files) {
+			System.out.println(file.getOriginalFilename());
+		}
+	
+		
+		
+		
+		
+		
 		
 		return path;
 	}
