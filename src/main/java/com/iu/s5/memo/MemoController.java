@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s5.util.Pager;
@@ -24,6 +25,7 @@ public class MemoController {
 	public void getList(Pager pager, Model model) throws Exception{
 		List<MemoVO> ar = memoService.memoList(pager);
 		model.addAttribute("list",ar);
+		//이럴 때는 제이슨 안 쓰는 게 나음 ㅎ ㅎ 
 	}
 	
 	
@@ -35,14 +37,15 @@ public class MemoController {
 	}
 	
 	@PostMapping("memoInsert")
-	public ModelAndView memoInsert(MemoVO memoVO) throws Exception{
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public int memoInsert(MemoVO memoVO) throws Exception{
+//		ModelAndView mv = new ModelAndView();
 		
 		int result = memoService.memoInsert(memoVO);
 		
-		mv.addObject("result",result);
-		mv.setViewName("common/ajaxResult");
-		return mv;
+//		mv.addObject("result",result);
+//		mv.setViewName("common/ajaxResult");
+		return result;
 	}
 	
 	

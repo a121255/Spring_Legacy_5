@@ -99,7 +99,7 @@
 				$.post("../boardFile/fileDelete",{fileNum:$(this).attr("id"),board:$(this).attr("title")},function(data){
 					alert(data);
 					
-					if(data.trim()>0){
+					if(data>0){
 						alert("성공");
 						alert(data);
 						s.parent().remove();
