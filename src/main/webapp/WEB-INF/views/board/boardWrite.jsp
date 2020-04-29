@@ -52,35 +52,13 @@
 	
 	
 	</div>
-<!-- 	<script type="text/javascript" src="../resources/js/boardForm.js">
-	
+ 	<script type="text/javascript" src="../resources/js/boardForm.js">
+ 
 
 	
-	</script> -->
+	</script> 
 	
-	<script type="text/javascript">
-	$("#contents").summernote({
-		height:400,
-		callbacks: {
-			onImageUpload: function(file) {
-			      $.ajax({
-			    	type="POST",
-			    	url:"../boardFile/fileInsert",
-			    	enctype:"multipart/form-data",
-			    	cache:false,
-			    	contentType:false,
-			    	processData:false,
-			    	success:function(imageName){}
-			    	//하드디스크에 저장 후 > 저장된 이름 > 이쪽으로 받아줄거임 > img태그 써서 경로명 붙일 거임
-			    	  
-			      })
-			      
-			}
-		}
-		
-	});
-	</script>
-	
+
 	
 </body>
 </html>

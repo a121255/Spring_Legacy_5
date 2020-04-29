@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s5.util.FileSaver;
 
@@ -18,6 +19,33 @@ public class BoardFileService {
 	
 	@Autowired
 	private FileSaver fileSaver;
+	
+	
+	
+	public int fileDelete(String fileName) throws Exception{
+		String path = servletContext.getRealPath("/resources/summer");
+		return fileSaver.deleteFile(fileName, path);
+	}
+	
+	
+	
+	
+	
+	
+	public String fileInsert(MultipartFile files) throws Exception{
+		//어느 경로에 어떤 이름으로 저장?
+		String path = servletContext.getRealPath("/resources/summer"); //경로
+		System.out.println(path);
+		path = fileSaver.saveByTransfer(files, path);
+		path = servletContext.getContextPath()+"/resources/summer/"+path;
+		//DB 연결 안 하니 굳이 DAO 갈 필요 없다
+		
+		return path;
+	}
+	
+	
+	
+	
 	
 	public BoardFileVO fileSelect(BoardFileVO boardFileVO) throws Exception {
 		return boardFileDAO.fileSelect(boardFileVO);
