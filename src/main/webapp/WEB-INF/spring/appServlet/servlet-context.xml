@@ -38,6 +38,49 @@
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 	
+<!-- 	<beans:bean class="com.iu.s5.interceptor.NoticeInterceptor" id="noticeInterceptor"></beans:bean> -->
+	
+	<interceptors>
+		<interceptor>
+			<!-- URL Pattern -->
+			<mapping path="/*"/>
+			
+			<!-- 적용할 Interceptor class -->
+			<beans:bean class="com.iu.s5.interceptor.TestInterceptor"><!-- 객체 생성 -->
+			
+			</beans:bean>
+		</interceptor>
+		
+		
+		
+		<interceptor>
+			<!-- <mapping path="/notice/noticeWrite"/>
+			<mapping path="/notice/noticeUpdate"/>
+			<mapping path="/notice/noticeDelete"/> -->
+			<!-- mapping은 여러 개 등록 가능 -->
+			
+			
+			<mapping path="/notice/*"/>
+			<exclude-mapping path="/notice/noticeList"/><!-- 얘는 제외하고 -->
+			<exclude-mapping path="/notice/noticeSelect"/>
+
+
+			<beans:ref bean="noticeInterceptor"/>
+			<!-- 만든 빈을 참조하게끔 만들어도 된다 -->
+		</interceptor>
+		
+		
+		<interceptor>
+			<mapping path="/member/memberPage"/>
+			<beans:ref bean="memberInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/qna/*"/>
+			<exclude-mapping path="/qna/qnaList"/>
+			<beans:ref bean="qnaInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="com.iu.s5" />
 	
