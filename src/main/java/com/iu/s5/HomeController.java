@@ -25,13 +25,17 @@ public class HomeController {
 	 */
 	
 
-	private String user;
+//	private String user;
+	
+	private Transfer transfer;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		System.out.println(user);
+//		System.out.println(user);
 		
 		
-		Transfer transfer = new Transfer();
+		
+		
 		Card card = new Card();
 		
 		card.cardCheck();
