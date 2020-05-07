@@ -6,6 +6,7 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.iu.s5.board.BoardService;
@@ -17,6 +18,7 @@ import com.iu.s5.util.Pager;
 
 
 @Service
+@Transactional
 public class NoticeService implements BoardService {
 	
 	@Autowired
@@ -53,6 +55,7 @@ public class NoticeService implements BoardService {
 	
 	
 	@Override
+	@Transactional
 	public int boardWrite(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		String path = servletContext.getRealPath("/resources/uploadnotice");
 		System.out.println(path);
@@ -76,7 +79,11 @@ public class NoticeService implements BoardService {
 			boardFileVO.setOriName(file.getOriginalFilename());
 			boardFileVO.setBoard(1);
 			
-			boardFileDAO.fileInsert(boardFileVO);
+			result = boardFileDAO.fileInsert(boardFileVO);
+			if(result<1) {
+				throw new Exception();
+			}
+			
 			}
 			
 		}
@@ -92,6 +99,7 @@ public class NoticeService implements BoardService {
 	
 
 	@Override
+	@Transactional
 	public int boardUpdate(BoardVO boardVO, MultipartFile [] files) throws Exception {
 		
 		
