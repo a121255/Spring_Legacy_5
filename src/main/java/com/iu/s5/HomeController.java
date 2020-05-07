@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,33 +28,25 @@ public class HomeController {
 
 //	private String user;
 	
+	@Autowired
 	private Transfer transfer;
+	
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 //		System.out.println(user);
 		
 		
+
+		transfer.bus(1000);
+
 		
-		
-		Card card = new Card();
-		
-		card.cardCheck();
-		transfer.bus();
-		card.cardCheck();
-		
-		
-		card.cardCheck();
-		transfer.subway();
-		card.cardCheck();
-		
-		 
-		
-		
-		
-		
-		
-		
+
+		transfer.subway(2000, "2");
+
+		transfer.taxi();
+
 		return "index";
 	}
 	
